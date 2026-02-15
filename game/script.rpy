@@ -3,7 +3,16 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define my = Character("Meyer", color = "#af0aa1")
+define mi = Character("Mina", color = "#b30045")
+define ty = Character("Tyce", color = "#7c7c7c")
+#this isn't relevant to this game but fun fact this guy is lowk a horseman of the apocalypse. he chillin though apoc is not here yet
+define al = Character("Altair", color = "#b60000")
+#these characters have official colors change these later VV
+define ya = Character("Yamini", color = "#b700ff")
+define ur = Character("Urmi", color = "#008CFF")
+define kt = Character("Kathryn", color = "#f30071")
+define sp = Character("Spata", color = "#ff5100")
 
 
 # The game starts here.
@@ -24,9 +33,14 @@ label start:
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    my "hi"
+    mi "hi"
+    ty "hi"
+    al "hi"
+    ya "hi"
+    ur "hi"
+    kt "hi"
+    sp "hi"
 
     # This ends the game.
 
