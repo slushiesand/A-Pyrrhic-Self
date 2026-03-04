@@ -21,23 +21,7 @@ image black = "#000"
 
 label start:
 
-    $ mina_friendship = 0
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
-
-    #show eileen happy
-
-    my "hi"
-    mi "hi"
-    ty "hi"
-    al "hi"
-    ya "hi"
-    ur "hi"
-    kt "hi"
-    sp "hi"
+    $ happiness = 0
 
     scene cg nightmare1 one
     with fade
@@ -65,6 +49,7 @@ label start:
     "It's always—{nw=1}"
 
     show cg meyerBed
+    #ambient music?
     "— Me."
     my "Haah. Not again..."
     "Cold sweat clings to my skin like fleas."
@@ -79,7 +64,7 @@ label start:
     
     Lots of bad things happened here, and still do.
     
-    I try to make the world a better place, along with my friends. Humans have to look out for each other, you know?
+    I try to make the world a better place, along with my friends. People have to look out for each other, you know?
     """
     show meyer cheek happy
     "We've all dedicated our lives to humanity, in a way. Some of my friends are going to college to become teachers. Others are starting a non-profit just for peace. It's amazing how far we've come as people!"
@@ -111,13 +96,13 @@ label start:
     "Especially in my shaded, rusty mirror."
     show bg bathroomCurtainOpen
     show mina mirror shade
-    #sound effect
+    #sound effect, music 
     mi "It's been a while, Meyer."
     "One and the same."
     mi "Well, technically, your dreams are a figment of your imagination. {color=#b30045}I'm{/color} as real as you."
-    "They can hear your thoughts, now your deepest secrets. {b}{color=#af0aa1}They are you.{/color}{/b}"
+    "They can hear your thoughts, know your deepest secrets. {b}{color=#af0aa1}They are you.{/color}{/b}"
     show mina mirror tilt
-    mi "... So, are you going to talk to me directly, or what?"
+    mi "... {w=1}So, are you going to talk to me directly, or what?"
 
     scene bg bathroom
     show meyer hand sad at right
@@ -136,20 +121,20 @@ label start:
     my "..."
     "He's right. The villain of the game... it was always me."
     show meyer default neu
-    my "... {w=1}I don't have time to think about it. Please, just show me my own appearance."
+    my "... {w=1}I don't have time to think about that. Please, just show me my own appearance."
     show mina up stare 
     mi "Fine... I guess you win."
 
     scene cg meyerMirror
     with dissolve
     """
-    He disappears to show my physical face.
+    He disappears to show my physical face. At least he respects me enough to do that.
     
-    I've always had eyebags, really. I was a high-achiever in school, so I spent a lot of nights studying until my dad yelled at me to go to sleep.
+    Truthfully, I've always had eyebags. I was a high-achiever in school, so I spent a lot of nights studying until my dad yelled at me to go to sleep.
     
     It was fun, in a way! Stressing my hair our trying to make a better future for myself.\n{color=#7c7c7c}(But it was useless.){/color}
     
-    Though, my eyebags have gotten darker lately, along with the rest of my mind.
+    Although, my eyebags have gotten darker lately, along with the rest of my mind.
     """
     #sound effect
     "Unfortunately, I don't have much in the way of makeup, so I opt to splash my face with cold water instead and hope it somehow clears up."
@@ -173,6 +158,7 @@ label start:
     my "..."
     show bg bathroomCurtain
     hide mina
+    #sfx
     "A dismissal of myself. He is no longer welcome to speak."
     "But I know what he'd say to me:"
     show black
@@ -181,19 +167,61 @@ label start:
     # day 1 start end
 
 label day_1:
-    ty "this is day 1"
-    #day 1 end
+    scene bg house
+    with fade
+    $ hasViolin = False
+    """
+    I arrive at my Dad's house.
     
+    It's nothing special. Just a single-family home in a copy-paste neighborhood.
+    
+    But therein lies a very peculiar man.
+    """
+
+    show black
+    with fade
+    #knock
+
+    show cg tyce one
+    with fade
+    #music
+    ty "Come in. I tuned your violin for you."
+    my "Ahh, I don't know... you know I quit practicing when I got out of high school."
+    ty "Well, you got ears. Last time I checked, you weren't tone deaf."
+    menu: 
+
+        "Pick up the violin.":
+            $ happiness += 5
+
+            show cg tyce violin
+            my "Haha. Fine~."
+            #sfx
+            ty "There you go, kid. Music's good for the soul."
+            my "I'm twenty, Dad."
+            ty "Hm. Still ten times younger than me."
+            my "Sure-sure, sir."
+
+        "Don't.":
+
+            show cg tyce two
+            my "Uh, I haven't cut my fingernails."
+            ty "Yeesh. Long fingernails? Forget it, then."
+            ty "I'll gift you some nail clippers for your birthday. How about that?"
+            my "Haha. Absolutely not!"
+    
+    #day 1 end
+
 label day_2_start:
     scene black
+    #ambient music?
 
     "I'm not always the only one featured in my nightmares."
 
     show cg nightmare2 one
     with fade
 
-    "Newsperson" "... The search for the five missing persons is still ongoing after one month."
-    "Newsperson" "These five individuals were reported to have all disappeared around 5 PM on January 14..."
+    "Newsperson" "... The search for the five missing persons is still ongoing after one month of little progress."
+    "Newsperson" "These five individuals were all reported to have disappeared around 5 PM on January 14..."
 
     """
 
