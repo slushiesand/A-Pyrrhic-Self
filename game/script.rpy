@@ -1,21 +1,17 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
+﻿
 
 define my = Character("Meyer", color = "#af0aa1")
 define mi = Character("Mina", color = "#b30045")
 define ty = Character("Tyce", color = "#7c7c7c")
 #this isn't relevant to this game but fun fact this guy is lowk death, horseman of the apocalypse. he chillin though the apoc is not here (yet)
 define al = Character("Altair", color = "#b60000")
-#these characters have official colors change these later VV
-define ya = Character("Yamini", color = "#b700ff")
-define ur = Character("Urmi", color = "#008CFF")
-define kt = Character("Kathryn", color = "#f30071")
-define sp = Character("Spata", color = "#ff5100")
+define ya = Character("Yamini", color = "#5a23a2")
+define ur = Character("Urmi", color = "#1e58c0")
+define kt = Character("Kathryn", color = "#00b391")
+define sp = Character("Spata", color = "#c54c30")
                       
 image black = "#000"
-
+define  audio.clownsMarch = "audio/music/0277_道化のマーチ.mp3"
 
 # The game starts here.
 
@@ -37,6 +33,7 @@ label start:
 
     show cg nightmare1 two
     with dissolve
+
     """
     It doesn't matter, really.
 
@@ -45,20 +42,27 @@ label start:
     It's always him.
     """
     show cg nightmare1 three
-    #laugh sound
-    "It's always—{nw=1}"
+    with dissolve
+    #play sound "sfx/smartsound_HUMAN_VOCAL_Female_Laugh_05.mp3"
+    play sound "<from 3.3>sfx/jessey_drake_synth_space_weird_horror_waterphone_sting_accent_snth_jd.mp3" fadein .5 fadeout .3
+    "It's always—{nw=1.5}"
 
-    show cg meyerBed
+    show cg meyerbed
     #ambient music?
+    stop sound
+    play sound "sfx/zapsplat_foley_clothing_jacket_hi_vis_single_shake_003_111604.mp3"
+    #play sound "<from 6>sfx/jessey_drake_synth_space_weird_horror_waterphone_sting_accent_snth_jd.mp3"
     "— Me."
     my "Haah. Not again..."
     "Cold sweat clings to my skin like fleas."
 
     scene bg bedroom
     with hpunch
+    play sound "sfx/zapsplat_household_bedsheet_movement_single_64354.mp3"
     "Time to get up, lonesome body."
+    play sound "sfx/zapsplat_foley_clothing_jacket_hi_vis_single_shake_003_111604.mp3"
     show meyer default neu
-    with dissolve
+    with fade
     """
     I often have nightmares in my sleep. Definintely more than the average adult, but maybe not in the city where I live.
     
@@ -71,7 +75,7 @@ label start:
     show meyer hand sad
     "Of course, I shouldn't be included in that gallantry."
     
-    scene cg calendar1
+    scene cg calendar one
     with fade
     """
     February 14th is my birthday, better known as the Day of Love.
@@ -84,7 +88,7 @@ label start:
 
     I like seeing people live brighter lives. It makes me forget about my own, just a bit.
     """
-    show cg calendar2
+    show cg calendar two
     with zoomin
     "Ah, that's right! I was going to visit my father today!"
     "I shouldn't just stand around, then. He'll scold me if I'm late to visit because I got stuck in my own head again..."
@@ -97,10 +101,11 @@ label start:
     show bg bathroomCurtainOpen
     show mina mirror shade
     #sound effect, music 
+    play music clownsMarch fadeout 1.0 fadein 1.0
     mi "It's been a while, Meyer."
     "One and the same."
     mi "Well, technically, your dreams are a figment of your imagination. {color=#b30045}I'm{/color} as real as you."
-    "They can hear your thoughts, know your deepest secrets. {b}{color=#af0aa1}They are you.{/color}{/b}"
+    "They can hear your thoughts, know your deepest secrets. {color=#af0aa1}They are you.{/color}"
     show mina mirror tilt
     mi "... {w=1}So, are you going to talk to me directly, or what?"
 
@@ -109,7 +114,7 @@ label start:
     show mina default neu at left
     with dissolve
 
-    my "I'm ignoring you for a {b}{color=#af0aa1}reason.{/color}{/b}"
+    my "I'm ignoring you for a {color=#af0aa1}reason.{/color}"
     show mina default surprise
     mi "What~? Shouldn't you just leave the curtain closed, then?"
     mi "Unless we were playing hide-and-seek? Who was 'it'? You or I?"
@@ -122,7 +127,7 @@ label start:
     "He's right. The villain of the game... it was always me."
     show meyer default neu
     my "... {w=1}I don't have time to think about that. Please, just show me my own appearance."
-    show mina up stare 
+    show mina up smug 
     mi "Fine... I guess you win."
 
     scene cg meyerMirror
@@ -132,12 +137,11 @@ label start:
     
     Truthfully, I've always had eyebags. I was a high-achiever in school, so I spent a lot of nights studying until my dad yelled at me to go to sleep.
     
-    It was fun, in a way! Stressing my hair our trying to make a better future for myself.\n{color=#7c7c7c}(But it was useless.){/color}
+    It was fun, in a way! Stressing my hair our trying to make a better future for myself.\n{color=#7c7c7c}(But it was useless, as you can see.){/color}
     
-    Although, my eyebags have gotten darker lately, along with the rest of my mind.
     """
     #sound effect
-    "Unfortunately, I don't have much in the way of makeup, so I opt to splash my face with cold water instead and hope it somehow clears up."
+    "{w=1}Unfortunately, I don't have much in the way of makeup, so I opt to splash my face with cold water instead and hope it somehow clears up."
     "Still, my own face feels ugly to look at. I'd almost rather look at my actual Reflection."
 
     scene bg bathroom
@@ -159,6 +163,7 @@ label start:
     show bg bathroomCurtain
     hide mina
     #sfx
+    stop music fadeout 1.0
     "A dismissal of myself. He is no longer welcome to speak."
     "But I know what he'd say to me:"
     show black
@@ -196,7 +201,7 @@ label day_1:
             show cg tyce violin
             my "Haha. Fine~."
             #sfx
-            ty "There you go, kid. Music's good for the soul."
+            ty "There you go, kid. Music's good for the heart."
             my "I'm twenty, Dad."
             ty "Hm. Still ten times younger than me."
             my "Sure-sure, sir."
