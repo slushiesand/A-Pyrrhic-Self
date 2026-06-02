@@ -3,12 +3,12 @@
 define my = Character("Meyer", color = "#af0aa1")
 define mi = Character("Mina", color = "#b30045")
 define ty = Character("Tyce", color = "#7c7c7c")
-#this isn't relevant to this game but fun fact this guy is lowk death, horseman of the apocalypse. he chillin though the apoc is not here (yet)
 define al = Character("Altair", color = "#b60000")
 define ya = Character("Yamini", color = "#5a23a2")
 define ur = Character("Urmi", color = "#1e58c0")
 define kt = Character("Kathryn", color = "#00b391")
 define sp = Character("Spata", color = "#c54c30")
+define fu = Character("Fuca", color = "#fff")
                       
 image black = "#000"
 define  audio.clownsMarch = "audio/music/0277_道化のマーチ.mp3"
@@ -43,7 +43,6 @@ label start:
     """
     show cg nightmare1 three
     with dissolve
-    #play sound "sfx/smartsound_HUMAN_VOCAL_Female_Laugh_05.mp3"
     play sound "<from 3.3>sfx/jessey_drake_synth_space_weird_horror_waterphone_sting_accent_snth_jd.mp3" fadein .5 fadeout .3
     "It's always—{nw=1.5}"
 
@@ -71,7 +70,7 @@ label start:
     I try to make the world a better place, along with my friends. People have to look out for each other, you know?
     """
     show meyer cheek happy
-    "We've all dedicated our lives to humanity, in a way. Some of my friends are going to college to become teachers. Others are starting a non-profit just for peace. It's amazing how far we've come as people!"
+    "We've all dedicated our lives to humanity, in a way. Some of my friends are going to college to become teachers. Others vow to protect peace directly."
     show meyer hand sad
     "Of course, I shouldn't be included in that gallantry."
     
@@ -134,6 +133,8 @@ label start:
     with dissolve
     """
     He disappears to show my physical face. At least he respects me enough to do that.
+
+    I stare at my disheveled appearance in the mirror.
     
     Truthfully, I've always had eyebags. I was a high-achiever in school, so I spent a lot of nights studying until my dad yelled at me to go to sleep.
     
@@ -147,6 +148,7 @@ label start:
     scene bg bathroom
     show mina point at left
     show meyer default neu at right
+    with vpunch
     mi "Only almost?"
     my "That wasn't an invitation for you to show up again."
     show mina default neu
@@ -187,7 +189,7 @@ label day_1:
     with fade
     #knock
 
-    show cg tyce one
+    scene cg tyce one
     with fade
     #music
     ty "Come in. I tuned your violin for you."
@@ -199,31 +201,89 @@ label day_1:
             $ happiness += 5
 
             show cg tyce violin
+            with dissolve
             my "Haha. Fine~."
             #sfx
             ty "There you go, kid. Music's good for the heart."
             my "I'm twenty, Dad."
             ty "Hm. Still ten times younger than me."
-            my "Sure-sure, sir."
+            my "I think it's a {i}bit{/i} more than that, sir."
 
         "Don't.":
 
             show cg tyce two
+            with dissolve
             my "Uh, I haven't cut my fingernails."
             ty "Yeesh. Long fingernails? Forget it, then."
             ty "I'll gift you some nail clippers for your birthday. How about that?"
             my "Haha. Absolutely not!"
+
+    show black:
+        alpha .5
+    with dissolve
+
+    """
+
+    Tyce isn't my biological dad, actually.
+
+    He adopted me when I was twelve, a little after my first incident.
+
+    He lived around the area, didn't have family of his own, and had experience with fostering troublesome children like me. So, it was a natural fit!
+
+    Though, I still caused lots of trouble.
+
+    He's a bit odd himself. A traditional, introverted old man is actually a retired rocker-photographer! It makes for quite the interesting character.
+
+    He's not a perfect man, but compared to my other choice for a father, he's leagues better.{w=1} He's my dad!
+
+    """
+
+    scene bg living
+    show meyer default smile at right
+    show tyce default smile at left
+    with dissolve
+
+    ty "How's the new place?"
+    show meyer cheek happy
+    my "It's nice! I don't have to drive to work anymore, and the grocery store isn't too far, either."
+    my "It's noisy and crowded all day, but that's what the city is like, hehe."
+    show tyce default new
+    ty "..."
+    show meyer default neu
+    my "But... I don't know."
+    my "It still feels lonely."
+    show meyer hand sad 
+    my """
     
-    #day 1 end
+    There's no one to talk to in my house other than myself.
+    
+    It feels like I'm trapped inside my own bubble, I guess.
+
+    Is that what living alone feels like? {w=1}\n... Maybe I should get a fishtank, just to fill the space a little.
+    
+    """
+    show tyce default closed
+    ty "You never liked being alone, did you?"
+    ty "... A pet would be good, yes."
+    show tyce hand smile
+    ty "Perhaps Altair could move in with you if they finally decide to get out of my hair."
+    show meyer default neu
+    my "You think they'd want to?"
+    show tyce hand wink
+    ty "Of course. You {i}are{/i} friends, are you not?"
+
+    
+    #---------------------------------------- day 1 end -----------------------------------------------------
 
 label day_2_start:
     scene black
-    #ambient music?
 
-    "I'm not always the only one featured in my nightmares."
+    "Sometimes, my nightmares are playbacks of memories."
+    "A memory of a quiet day with a single trigger, gone south."
 
-    show cg nightmare2 one
+    show cg nightmare2 oneA
     with fade
+    #tv noise
 
     "Newsperson" "... The search for the five missing persons is still ongoing after one month of little progress."
     "Newsperson" "These five individuals were all reported to have disappeared around 5 PM on January 14..."
@@ -233,61 +293,117 @@ label day_2_start:
     I remember seeing this broadcast a week after I moved in with Tyce.
 
     I was sitting on the floor playing with a toy ukelele Tyce got me. 
+
+    """
+
+    ty "See? When you put your fingers on the frets, the sound the strings make changes."
+
+    "He wasn't paying attention to the screen. Mostly making sure I didn't break his physical lecture tool, haha."
+
+
+    show cg nightmare2 twoA
+
+    "Newsperson" "...The final person is a 40 year old woman named ■■■■■ ■■■■■, approximately average height..."
+
+    my "... I think you'd like her."
+    ty "Sorry? Who?"
+    my "The lady on the screen! ■■■■■ ■■■■■. She's {i}nice, educated,{/i} and... {w=1} uh..."
+    #sfx
+    "{i}Missing. Dead. Missing. Dead.{/i}"
+    my "I..."
+    #sfx
+    "{i}{color=#af0aa1}missingdeadmangledmissing{/color}{/i}{nw=1}"
+
+    show cg nightmare2 threeA
+    #thump
+    ty "{b}Hey. Meyer.{/b} Don't pay attention to the television, alright?"
+    ty "She'll be okay. You'll be okay."
+
+    show cg nightmare2 glitch
+    #sfx
+
+    al "...{w=1} In what world would you ever think this is okay?!"
+
+    show cg nightmare2 oneB
+    "A rainy midnight on a life-changing day."
+    al "How is it ever justified to punish petty criminals and cheaters with--{nw=1}"
+    play sound "sfx/smartsound_HUMAN_VOCAL_Female_Laugh_05.mp3"
+    my "Haha, you're one to talk! Why don't you ask yourself that?"
+
+    show cg nightmare2 twoB
+    my "We're cut from the same cloth, you know~? A little different job, maybe, but trapped under the same {color=#af0aa1}dirty puppet strings.{/color}"
+    my "It makes me sick, too. {i}Really!{/i} But there's nothing we can do about it."
+    my "You must know as well as I do! {color=#af0aa1}We are people who {i}cannot change.{/i}{/color}"
+
+    scene cg meyerbed2
+    #ok i know these variable names are inconsistent but IDC i gave up
+    stop sound
+    play sound "sfx/zapsplat_foley_clothing_jacket_hi_vis_single_shake_003_111604.mp3"
+    "..."
+    "There's nothing I can do but sigh when I finally wake up."
     
-    He wasn't paying attention; Mostly making sure I didn't break the dang thing, haha.
-
-    """
-
-    show cg nightmare2 two
-
-    "Newsperson" "...The final person is a 40 year old woman named XXXX XXXX, approximately average height..."
-
-    "Out of everyone I met, that lady was the one I liked the most."
-    "She reminded me of my old friend's parents: Gentle, steadfast, strong. But she was too kind."
-
-    "Newsperson" "If you have any information of their whereabouts, please leave a tip at our local police line..."
-
-    "Of course, I knew where all five of them went."
-    "They were the first, but they were certainly not the last."
-
-    #fade
-
-    show cg nightmare2 three
-    with fade
-    "Principal" """ 
     
-    We are here to honor the lives of the five students lost to the hands of the X?!!??!?@@X...
-
-    These bright youths of tomorrow had their light unceremoniously taken away from them in the night, as if their life was worth less than another's...
-
-    """
-
-    """ 
-
-    Yes... that was the kind of thing I thought back then. 
-
-    It was a terrible, terrible notion.
-
-    """
-
-    "Principal" "... We will now proceed to have a moment of silence. Please cease any movement in or out of the building until directed."
-
-    """
-
-    In the end, the one who found me out was Altair, who was on their own kind of redemption journey.
-
-    We'd hadn't known each other personally for very long, but we grew up in the same environment. 
-    
-    It was strange having someone who knew exactly why I was made the way I was.
-
-    Afterwards, they continued on their journey, and grasped a well-deserved happy ending.
-    """
-    show cg nightmare2 four
-    #ringing sound
-    my "And yet... I still find my old habits clinging onto me today--"
-    #E
 label day_3_start:
 
     "woah"
 
+    if happiness >= 5:
+        #make this trigger if you got both endings
+        jump secret
+    else:
+        return
+
+label secret:
+    
+    scene cg secret1
+    with fade
+    #night time ambiance
+    ty "..."
+
+    show cg secret2
+    with vpunch
+    fu "Looking for someone?"
+    ty "Can't a man admire the heavens in peace? I can see the stars for once."
+
+    show cg secret3
+    with dissolve
+    fu "Is that so? I personally believe that the sky looks the same as yesterday, and the day before."
+    ty "Well, that's your opinion. Perhaps you haven't noticed the stars fading away from your millenia on the moon."
+    fu "200 years for a human is also a long time! Though, I suppose it's debatable whether you still qualify as one."
+
+
+    show cg secret2
+    with dissolve
+    ty "... What do you want, God of Biotic Beings?"
+    fu "I don't mean to offend! Can't a 'person' visit their friends once in a while? I don't talk to you strictly for business, you know?"
+    ty "I would not consider you a friend as much as an individual that has stuck around longer than others I have known."
+    ty "And nonetheless, it is written on your face. You have dealings with {color=#7c7c7c}Death,{/color} not a former man named {color=#7c7c7c}Tyce{/color}."
+
+    show cg secret3
+    with dissolve
+    fu "Aagh... Someday, I'll be able to fool you."
+    fu "Anyway! I wanted to hear how your children are doing. Your dear Meyer and Altair."
+    ty "... My children? They are...{w=1} happy."
+
+    show cg secret2
+    with dissolve
+    ty "They're well-functioning adults. Altair and Meyer have steady jobs, and Meyer had his birthday recently."
+    ty "Of course, these are not indications of happiness. Following the rules makes everyone go insane eventually."
+
+    show cg secret4
+    with dissolve
+    ty "So I will say this: They are now unburdened by their past.\n... They now forge their own path."
+    fu "... It pleases me to hear that."
+    ty "I have simply done my duty. Nothing extraordinary."
+
+    show cg secret5
+    with dissolve
+    fu "Hm... But I think you'll have to watch them a little longer. Say... about 10 more years?"
+    ty "Oh? And why is that?"
+    fu "... An apocalypse may once again arrive, Death. And these children of yours may be the {i}key to end it.{/i}"
+
+    scene black
+    with fade
+
     return
+    
