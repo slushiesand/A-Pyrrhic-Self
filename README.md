@@ -6,7 +6,7 @@ A W.I.P. visual novel following the 3 days leading to your birthday, and the con
 
 <i>
   <p> Meyer can't help but become depressed when his birthday rolls around. It's another year that should have been givern to those who are no longer here. </p>
-  <p> Even 5 years down the line, Meyer can't forgive himself, nor his evcer-present self in the mirror. </p>
+  <p> Even 5 years down the line, Meyer can't forgive himself, nor his ever-present self in the mirror. </p>
   <p> But the people around him still greet him as usual. He supposes, for their sakes, he should continue trudging on. </p>
   <p> " ... Meyer, you'll have to forgive me one day, you know? Or one day, the pressure will get to you again. " </p>
   <p> " ... I just want to play like we used to. "</p>
