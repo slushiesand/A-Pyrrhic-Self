@@ -17,7 +17,8 @@ define  audio.clownsMarch = "audio/music/0277_道化のマーチ.mp3"
 
 label start:
 
-    $ happiness = 0
+    $ endingGood = 0
+    $ endingBad = 0
 
     scene cg nightmare1 one
     with fade
@@ -46,7 +47,7 @@ label start:
     play sound "<from 3.3>sfx/jessey_drake_synth_space_weird_horror_waterphone_sting_accent_snth_jd.mp3" fadein .5 fadeout .3
     "It's always—{nw=1.5}"
 
-    show cg meyerbed
+    show cg meyerbed one
     #ambient music?
     stop sound
     play sound "sfx/zapsplat_foley_clothing_jacket_hi_vis_single_shake_003_111604.mp3"
@@ -63,21 +64,21 @@ label start:
     show meyer default neu
     with fade
     """
-    I often have nightmares in my sleep. Definintely more than the average adult, but maybe not in the city where I live.
+    I often have nightmares in my sleep. Definintely more than the average adult, but I'm sure I'm not the only one who suffers.
     
-    Lots of bad things happened here, and still do.
+    We live in quite the tulmutuous world, after all! Violence is not a stranger in our lives, unfortunately for our young selves.
     
-    I try to make the world a better place, along with my friends. People have to look out for each other, you know?
+    But my friends and I try to make to make the world a better place. People have to look out for each other, you know?
     """
     show meyer cheek happy
-    "We've all dedicated our lives to humanity, in a way. Some of my friends are going to college to become teachers. Others vow to protect peace directly."
+    "They've all dedicated their lives to humanity, in a way. Some of them are going to college to become teachers. Others vow to protect peace directly."
     show meyer hand sad
     "Of course, I shouldn't be included in that gallantry."
     
     scene cg calendar one
     with fade
     """
-    February 14th is my birthday, better known as the Day of Love.
+    February 14th is my birthday, better known as Valentine's Day.
     
     I've always found it ironic, considering everything that has happened. {color=#7c7c7c}(Considering everything I've done.){/color}{nw=1}
     
@@ -85,7 +86,7 @@ label start:
 
     But at least I get to see all of my friends happy.
 
-    I like seeing people live brighter lives. It makes me forget about my own, just a bit.
+    I like seeing people live brighter lives. It makes me happy too, just for a little bit.
     """
     show cg calendar two
     with zoomin
@@ -96,7 +97,7 @@ label start:
     with fade
 
     "... But there are nightmares everywhere."
-    "Especially in my shaded, rusty mirror."
+    "Especially in that shaded, rusty mirror."
     show bg bathroomCurtainOpen
     show mina mirror shade
     #sound effect, music 
@@ -122,9 +123,6 @@ label start:
     show mina up shade
     mi "Hm... I guess 'it' {i}would{/i} be you. You were the one that found me, after all."
     show meyer hand sad
-    my "..."
-    "He's right. The villain of the game... it was always me."
-    show meyer default neu
     my "... {w=1}I don't have time to think about that. Please, just show me my own appearance."
     show mina up smug 
     mi "Fine... I guess you win."
@@ -136,13 +134,11 @@ label start:
 
     I stare at my disheveled appearance in the mirror.
     
-    Truthfully, I've always had eyebags. I was a high-achiever in school, so I spent a lot of nights studying until my dad yelled at me to go to sleep.
-    
-    It was fun, in a way! Stressing my hair our trying to make a better future for myself.\n{color=#7c7c7c}(But it was useless, as you can see.){/color}
+    Truthfully, I've always had eyebags. I was a high-achiever in school, so I spent a lot of nights studying until my dad yelled at me to go to sleep.\n{color=#7c7c7c}(It has persisted into my adulthood, so you see~.){/color}
     
     """
     #sound effect
-    "{w=1}Unfortunately, I don't have much in the way of makeup, so I opt to splash my face with cold water instead and hope it somehow clears up."
+    "{w=1}Unfortunately, I don't have much in the way of makeup these days, so I opt to splash my face with cold water instead and hope it somehow clears up."
     "Still, my own face feels ugly to look at. I'd almost rather look at my actual Reflection."
 
     scene bg bathroom
@@ -198,7 +194,7 @@ label day_1:
     menu: 
 
         "Pick up the violin.":
-            $ happiness += 5
+            $ endingGood += 5
 
             show cg tyce violin
             with dissolve
@@ -210,6 +206,7 @@ label day_1:
             my "I think it's a {i}bit{/i} more than that, sir."
 
         "Don't.":
+            $ endingBad += 5
 
             show cg tyce two
             with dissolve
@@ -335,20 +332,82 @@ label day_2_start:
     my "It makes me sick, too. {i}Really!{/i} But there's nothing we can do about it."
     my "You must know as well as I do! {color=#af0aa1}We are people who {i}cannot change.{/i}{/color}"
 
-    scene cg meyerbed2
+    scene cg meyerbed two
     #ok i know these variable names are inconsistent but IDC i gave up
     stop sound
     play sound "sfx/zapsplat_foley_clothing_jacket_hi_vis_single_shake_003_111604.mp3"
     "..."
     "There's nothing I can do but sigh when I finally wake up."
-    
+
+    "room rambling here"
+
+    scene bg bathroom
+    show meyer hand sad at right
+    show mina default neu at left
+    with dissolve
+
+    "uh variable text with mina depending on route so far"
+
+    "Phone" "{i}Brrng... Brrng...{/i}"
+    show meyer hand bother
+    with dissolve
+    "... Who the hell is calling me at 7 in the morning?"
+    show meyer default neu
+    with dissolve
+    my "... Hold on."
+
+    scene cg phone one #no yamini
+    show meyer phone neu
+    my "Hello?"
+    ya "We're going shopping. Get ready."
+    show cg phone two #yamini annoy
+    show meyer phone bother
+    with vpunch
+    my "... Excuse me? I hardly just got up! Do you know what time it is?"
+    show meyer phone smug
+    #swaying animation
+    my "And don't you have an important exam tomorrow, Yamini~? You should go study, my dear friend~."
+    show cg phone three #yamini smug
+    with dissolve
+    ya "Uh-huh. I'm already outside your apartment."
+    show meyer phone manic 
+    my "... {w=1} I'm hanging up."
+
+    scene cg car one
+    with fade
+    ya "Hey! Good morning!"
+    my "Where in {i}God's name{/i} could we be going to come unprompted to my apartment at 8 am..."
+    ur "If it makes you feel better, I was also dragged out here for no apparent reason."
+    show cg car two
+    with dissolve
+    my "Haah... and here I thought your sister would behave in college..."
+    my "Not a thing has changed since elementary school~."
+
+    show black:
+        alpha .5
+    with dissolve
+    """
+        
+        Well, I say that, but they really have changed since I've met them 15 years ago.
+
+        Yamini, the narcissistic prodigy, and Urmi, the steadfast warrior. They were the "Genius Twins of the Master Parents" of our town. I can't even disagree with that assessment!
+
+        But there's one more thing people tend to forget: They are terribly, terribly kind.
+
+        After all, they've forgiven me far too many times than justified.
+
+    """
+
+    hide black
+    with dissolve
+
     
 label day_3_start:
 
     "woah"
 
-    if happiness >= 5:
-        #make this trigger if you got both endings
+    if endingGood > endingBad:
+        #linked to ending values for testing purposes; make trigger if both endings achieved
         jump secret
     else:
         return
@@ -403,7 +462,7 @@ label secret:
     fu "... An apocalypse may once again arrive, Death. And these children of yours may be the {i}key to end it.{/i}"
 
     scene black
-    with fade
+    with fade 
 
     return
     
