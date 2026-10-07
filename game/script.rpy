@@ -67,12 +67,29 @@ label start:
     I often have nightmares in my sleep. Definintely more than the average adult, but I'm sure I'm not the only one who suffers.
     
     We live in quite the tulmutuous world, after all! Violence is not a stranger in our lives, unfortunately for our young selves.
-    
-    But my friends and I try to make to make the world a better place. People have to look out for each other, you know?
     """
-    show meyer cheek happy
+    show meyer default neu:
+        subpixel True 
+        parallel:
+            ypos 1.0 
+            linear 0.36 ypos 1.06 
+        parallel:
+            zrotate 0.0 
+            linear 0.36 zrotate -9.0 
+    "But my friends and I try to make to make the world a better place. People have to look out for each other, you know?"
+    show meyer cheek happy:
+        subpixel True 
+        parallel:
+            ypos 1.06
+            linear 0.36 ypos 1.0
+        parallel:
+            zrotate -9.0
+            linear 0.36 zrotate 0.0
     "They've all dedicated their lives to humanity, in a way. Some of them are going to college to become teachers. Others vow to protect peace directly."
-    show meyer hand sad
+    show meyer hand sad:
+        subpixel True
+        ypos 1.0
+        linear 0.36 ypos 1.06
     "Of course, I shouldn't be included in that gallantry."
     
     scene cg calendar one
@@ -115,14 +132,27 @@ label start:
     with dissolve
 
     my "I'm ignoring you for a {color=#af0aa1}reason.{/color}"
-    show mina default surprise
+    show mina default surprise:
+        subpixel True 
+        xpos 0.0 
+        easein_bounce 0.30 xpos 0.06 
     mi "What~? Shouldn't you just leave the curtain closed, then?"
+    show mina default surprise:
+        subpixel True 
+        ypos 1.0 zrotate 0.0 
+        easein_back 0.30 ypos 1.02 zrotate -6.0
     mi "Unless we were playing hide-and-seek? Who was 'it'? You or I?"
     show meyer hand bother
     my "I'm not playing games with you. Your idea of 'fun' is nothing to be proud of."
-    show mina up shade
+    show mina up shade:
+        subpixel True
+        xpos 0.06 ypos 1.02 zrotate -6.0
+        easein 0.30 xpos 0.0 ypos 1.0 zrotate 0.0
     mi "Hm... I guess 'it' {i}would{/i} be you. You were the one that found me, after all."
-    show meyer hand sad
+    show meyer hand sad:
+        subpixel True 
+        xpos 1.0 
+        easein 0.30 xpos 1.03
     my "... {w=1}I don't have time to think about that. Please, just show me my own appearance."
     show mina up smug 
     mi "Fine... I guess you win."
@@ -146,6 +176,10 @@ label start:
     show meyer default neu at right
     with vpunch
     mi "Only almost?"
+    show meyer default neu:
+        subpixel True 
+        xpos 1.0 
+        easein 0.30 xpos 1.03
     my "That wasn't an invitation for you to show up again."
     show mina default neu
     mi "Well, you seemed done, so I invited myself back!"
@@ -244,7 +278,10 @@ label day_1:
     show meyer cheek happy
     my "It's nice! I don't have to drive to work anymore, and the grocery store isn't too far, either."
     my "It's noisy and crowded all day, but that's what the city is like, hehe."
-    show tyce default new
+    show tyce default neu:
+        subpixel True
+        ypos 1.0
+        linear 0.36 ypos 1.03
     ty "..."
     show meyer default neu
     my "But... I don't know."
@@ -259,7 +296,10 @@ label day_1:
     Is that what living alone feels like? {w=1}\n... Maybe I should get a fishtank, just to fill the space a little.
     
     """
-    show tyce default closed
+    show tyce default closed:
+        subpixel True
+        ypos 1.03
+        linear 0.36 ypos 1.0
     ty "You never liked being alone, did you?"
     ty "... A pet would be good, yes."
     show tyce hand smile
@@ -268,6 +308,53 @@ label day_1:
     my "You think they'd want to?"
     show tyce hand wink
     ty "Of course. You {i}are{/i} friends, are you not?"
+    #movement
+    my "I guess they've done that much for me."
+    show meyer cheek happy
+    my "Ah, but who cares about that? How's being an {i}almost-empty-nester?"
+    show tyce default smile
+    ty "The greatest relief. These children have no regard for quiet nights; Always walking in and out like the world isn't supposed to asleep."
+    ty "Life isn't so eventful when you're as old as I am. So I just take my extra time practicing hobbies."
+    show meyer cheek bashful
+    my "Hobbies... like... ?"
+    
+    menu: 
+        "Making quippy remarks?":
+            pass
+
+        "Guitar?":
+            pass
+
+        "Stargazing?":
+            show tyce default closed
+            ty "... Yes."
+            ty "Objectively, the starry sky isn't as clear as it once was, back when I was your age."
+            show tyce default neu
+            ty "But I seem to be able to trace the constellations better now that I've settled down."
+            ty "How about you? Are the paths in the sky clear for you to trace?"
+            show meyer default neu
+
+            menu: 
+                "Yes.":
+                    $ endingGood += 5
+                    my "Well, I don't think I could ever forget the man in the sky."
+                    show meyer cheek bashful
+                    my "Orion was always the first constellation I spotted, remember? It's a little silly, but I thought he was my guardian angel when I was younger."
+                    show tyce default closed
+                    ty "Perhaps he really was."
+                    ty "Guided by the strong hunter of the stars... I believe that's quite a righteous path you've got."
+
+                "No.":
+                    $ endingBad += 5
+                    my "Of course not. The sky in the city is no clearer than the suburbs."
+                    my "I haven't had the time to stargaze, anyway."
+                    ty "Is that so?"
+                    show tyce default smile
+                    ty "You still have plenty of time to find your way. Don't discount yourself just yet."
+
+            show meyer hand sad
+            "... Were we really talking about stars?"
+
 
     
     #---------------------------------------- day 1 end -----------------------------------------------------
