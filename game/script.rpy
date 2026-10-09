@@ -320,10 +320,27 @@ label day_1:
     
     menu: 
         "Making quippy remarks?":
-            pass
+            show tyce default neu
+            ty "Hmph. No need to practice that one. I got a century's fill from raising you."
+            show meyer cheek happy:
+                subpixel True
+                ypos 1.0
+                linear 0.36 ypos 1.03
+            "There you have it: Verbal proof that I was a very annoying child."
 
         "Guitar?":
-            pass
+            show tyce default neu
+            ty "Well, that's not much of a 'quiet night,' is it?"
+            show meyer hand sad
+            my "Don't you still get noise complaints from the neighbors? Altair sees them in the mail all the time."
+            show tyce default closed
+            ty "That is what {i}they{/i} see. If {b}I{/b} do not see these letters, then it is not of my concern."
+            show meyer hand sad:
+                subpixel True
+                ypos 1.0
+                linear 0.36 ypos 1.03
+            "See no evil, huh... ?"
+
 
         "Stargazing?":
             show tyce default closed
@@ -352,10 +369,86 @@ label day_1:
                     show tyce default smile
                     ty "You still have plenty of time to find your way. Don't discount yourself just yet."
 
-            show meyer hand sad
+            show meyer hand sad:
+                subpixel True
+                ypos 1.0
+                linear 0.36 ypos 1.03
             "... Were we really talking about stars?"
 
+    show tyce hand smile
+    with None
+    show meyer:
+        subpixel True
+        ypos 1.03
+        linear 0.36 ypos 1.0
+    ty "Anyway, I'll get you something to eat. I believe Altair should be coming home soon, anyway."
+    ty "We can have brunch together."
 
+    hide tyce
+    with moveoutleft
+    show meyer default neu at center
+    with moveinright
+    """
+    Dad leaves to the kitchen, leaving me alone with the violin and the other knick-knacks of the living room.
+    
+    This is the only home I've known. Dad traveled for work when he was younger, but he's settled down now that he has family.
+
+    It's a big vague at this point, but I lived in a few different houses when I was in foster care. 
+    """
+    show meyer hand sad
+    "My last family before my incident was nice. They were happy to see me adopted."
+    show meyer hand sad
+    with pixellate
+    "My first adoptive 'family'... {nw=.3}"
+    show meyer hand sad
+    with pixellate
+    "... No, nevermind. {w=1} I'm not wasting my breath with {color=#af0aa1}scum."
+
+    menu:
+        "Look at the bookshelf nearby.":
+            show meyer default neu
+            "I look around for anything to distract me before I start spiraling."
+            $ endingGood += 5
+
+            scene cg books
+            with dissolve
+            "I find myself drawn to the bookshelf serving as the table for our TV."
+            "I close my eyes and run my hands across the spines before stopping and picking out a book."
+            show photos one
+            with moveinbottom
+            "Ah, it's one of my Dad's old photo albums."
+            "I've gone through these more times than I can count, frankly, but I guess it wouldn't hurt to go through them again."
+            show photos two
+            with dissolve
+            "This one is of... {w=1} Eugh. It's some of my cringy outfits from high school."
+            "I wanted to be emo, but I didn't really want to commit to the colors -- or lack thereof --, so I just ended up as a dork.\n{color=#7c7c7c}(I'm glad I dress more like my dad now...)"
+            "My close friend Urmi introduced me to a lot of niche rock bands, so I wanted to look the part."
+            "... Though now that I think about it, she wasn't really commited to emo, either. Maybe we were all just posers~."
+
+            scene cg tyce three
+            with dissolve
+            "I laugh as I sit back on the couch. I feel a little better now!"
+
+        "Look at the framed pictures on the wall.":
+            show meyer default neu
+            "I look around for anything to distract me before I start spiraling."
+
+            scene cg frames one
+            with dissolve
+            "I find myself drawn to some framed pictures on the wall."
+            "It mostly consists of upscaled landscape photographs from all across the world: Rainforest waterfalls, mountain peaks, coastal sands."
+            "Apparently, these were all taken by Dad. No clue when he would have time to take these while doing his work, but I guess it's no use questioning it now."
+            "There's also some pictures of our family. Right here is my middle school graduation photo.\n{color=#7c7c7c}(How cursed that boy is.)"
+            "Over here is when I invited Altair over to our house for the first time.\n{color=#7c7c7c}(Ah! Little did that boy know that his best friend would later live in the same house as him!)"
+            scene cg frames two
+            with zoomin
+            "This one isn't a picture, but it's my high school diploma."
+            "Altair doesn't have one yet. They never had a proper education, so they're working their way through night school while working in the morning."
+            "... Sometimes I'm jealous of their resolve through life."
+
+            scene cg tyce three
+            with dissolve
+            "I sigh as I sit back on the couch. I feel a little better now."
     
     #---------------------------------------- day 1 end -----------------------------------------------------
 
@@ -374,9 +467,9 @@ label day_2_start:
 
     """
 
-    I remember seeing this broadcast a week after I moved in with Tyce.
+    I remember seeing this broadcast a week after I moved in with Dad.
 
-    I was sitting on the floor playing with a toy ukelele Tyce got me. 
+    I was sitting on the floor playing with a toy ukelele Dad got me. 
 
     """
 
