@@ -8,12 +8,12 @@ define ya = Character("Yamini", color = "#5a23a2")
 define ur = Character("Urmi", color = "#1e58c0")
 define kt = Character("Kathryn", color = "#00b391")
 define sp = Character("Spata", color = "#c54c30")
-define fu = Character("Fuca", color = "#fff")
+define fu = Character("Fuca", color = "#fff") #this guy's back again? ah hell nah
                       
 image black = "#000"
 define  audio.clownsMarch = "audio/music/0277_道化のマーチ.mp3"
 
-# The game starts here.
+# shift + p = action editor
 
 label start:
 
@@ -72,19 +72,19 @@ label start:
         subpixel True 
         parallel:
             ypos 1.0 
-            linear 0.36 ypos 1.06 
+            easein 0.36 ypos 1.06 
         parallel:
             zrotate 0.0 
-            linear 0.36 zrotate -9.0 
+            easein 0.36 zrotate -9.0 
     "But my friends and I try to make to make the world a better place. People have to look out for each other, you know?"
     show meyer cheek happy:
         subpixel True 
         parallel:
             ypos 1.06
-            linear 0.36 ypos 1.0
+            easeout 0.36 ypos 1.0
         parallel:
             zrotate -9.0
-            linear 0.36 zrotate 0.0
+            easeout 0.36 zrotate 0.0
     "They've all dedicated their lives to humanity, in a way. Some of them are going to college to become teachers. Others vow to protect peace directly."
     show meyer hand sad:
         subpixel True
@@ -92,7 +92,7 @@ label start:
         linear 0.36 ypos 1.06
     "Of course, I shouldn't be included in that gallantry."
     
-    scene cg calendar one
+    scene cg calendar
     with fade
     """
     February 14th is my birthday, better known as Valentine's Day.
@@ -105,8 +105,7 @@ label start:
 
     I like seeing people live brighter lives. It makes me happy too, just for a little bit.
     """
-    show cg calendar two
-    with zoomin
+    show cg calendar #action editor zoom
     "Ah, that's right! I was going to visit my father today!"
     "I shouldn't just stand around, then. He'll scold me if I'm late to visit because I got stuck in my own head again..."
 
@@ -157,7 +156,8 @@ label start:
     show mina up smug 
     mi "Fine... I guess you win."
 
-    scene cg meyerMirror
+    scene bg bathroomCurtainOpen
+    show meyer mirror neu
     with dissolve
     """
     He disappears to show my physical face. At least he respects me enough to do that.
@@ -314,7 +314,25 @@ label day_1:
     my "Ah, but who cares about that? How's being an {i}almost-empty-nester?"
     show tyce default smile
     ty "The greatest relief. These children have no regard for quiet nights; Always walking in and out like the world isn't supposed to asleep."
-    ty "Life isn't so eventful when you're as old as I am. So I just take my extra time practicing hobbies."
+    show meyer default neu
+    show tyce default smile:
+        subpixel True 
+        parallel:
+            ypos 1.0 
+            easein 0.36 ypos 1.06 
+        parallel:
+            zrotate 0.0 
+            easein 0.36 zrotate 9.0 
+    ty "Don't look so sad. I was joking."
+    show tyce default smile:
+        subpixel True 
+        parallel:
+            ypos 1.06
+            linear 0.36 ypos 1.0
+        parallel:
+            zrotate 9.0
+            linear 0.36 zrotate 0.0
+    ty "It's simply that life isn't so eventful when you're as old as I am. So I just take my extra time practicing hobbies."
     show meyer cheek bashful
     my "Hobbies... like... ?"
     
@@ -359,12 +377,12 @@ label day_1:
                     my "Orion was always the first constellation I spotted, remember? It's a little silly, but I thought he was my guardian angel when I was younger."
                     show tyce default closed
                     ty "Perhaps he really was."
-                    ty "Guided by the strong hunter of the stars... I believe that's quite a righteous path you've got."
+                    ty "Guided by the strong hunter of the stars... I believe that's quite a righteous path."
 
                 "No.":
                     $ endingBad += 5
                     my "Of course not. The sky in the city is no clearer than the suburbs."
-                    my "I haven't had the time to stargaze, anyway."
+                    my "There's no time to stargaze now. I don't have the leisure time of a {color=#b30045}child{/color} anymore."
                     ty "Is that so?"
                     show tyce default smile
                     ty "You still have plenty of time to find your way. Don't discount yourself just yet."
@@ -373,7 +391,7 @@ label day_1:
                 subpixel True
                 ypos 1.0
                 linear 0.36 ypos 1.03
-            "... Were we really talking about stars?"
+            "... I have a feeling he isn't talking about stars."
 
     show tyce hand smile
     with None
@@ -538,6 +556,7 @@ label day_2_start:
 
     scene cg phone one #no yamini
     show meyer phone neu
+    with fade
     my "Hello?"
     ya "We're going shopping. Get ready."
     show cg phone two #yamini annoy
@@ -556,12 +575,12 @@ label day_2_start:
     scene cg car one
     with fade
     ya "Hey! Good morning!"
-    my "Where in {i}God's name{/i} could we be going to come unprompted to my apartment at 8 am..."
+    my "Where in {i}God's name{/i} could we be going to come unprompted to my apartment at 7:30 am..."
     ur "If it makes you feel better, I was also dragged out here for no apparent reason."
     show cg car two
     with dissolve
-    my "Haah... and here I thought your sister would behave in college..."
-    my "Not a thing has changed since elementary school~."
+    my "Haah... and here I thought your sister would behave in college."
+    my "Not a thing has changed since elementary school..."
 
     show black:
         alpha .5
@@ -570,11 +589,15 @@ label day_2_start:
         
         Well, I say that, but they really have changed since I've met them 15 years ago.
 
-        Yamini, the narcissistic prodigy, and Urmi, the steadfast warrior. They were the "Genius Twins of the Master Parents" of our town. I can't even disagree with that assessment!
+        We met in elementary school, before I was first adopted. 
 
-        But there's one more thing people tend to forget: They are terribly, terribly kind.
+        Yamini, the narcissistic prodigy, and Urmi, the steadfast warrior. They were the "Genius Twins of the Master Parents" in our town, but they couldn't get along any worse!
 
-        After all, they've forgiven me far too many times than justified.
+        But in the present day, valedictorian and salutatorian are going to the top college in the state to teach the next generation together. I really couldn't be happier for them.
+
+        Still, there's still one thing I fail to understand about them. Maybe I'm simply too dumb for their level of intelligence, but...
+
+        ... Why do they choose to stick with someone who's caused so much harm?
 
     """
 
