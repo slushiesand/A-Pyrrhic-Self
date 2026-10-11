@@ -12,6 +12,8 @@ define fu = Character("Fuca", color = "#fff") #this guy's back again? ah hell na
                       
 image black = "#000"
 define  audio.clownsMarch = "audio/music/0277_道化のマーチ.mp3"
+define audio.clothLoud = "audio/sfx/zapsplat_foley_clothing_jacket_hi_vis_single_shake_003_111604.mp3"
+define audio.clothQuiet = "audio/sfx/zapsplat_household_bedsheet_movement_single_64354.mp3"
 
 # shift + p = action editor
 
@@ -50,7 +52,7 @@ label start:
     show cg meyerbed one
     #ambient music?
     stop sound
-    play sound "sfx/zapsplat_foley_clothing_jacket_hi_vis_single_shake_003_111604.mp3"
+    play sound clothLoud
     #play sound "<from 6>sfx/jessey_drake_synth_space_weird_horror_waterphone_sting_accent_snth_jd.mp3"
     "— Me."
     my "Haah. Not again..."
@@ -58,9 +60,9 @@ label start:
 
     scene bg bedroom
     with hpunch
-    play sound "sfx/zapsplat_household_bedsheet_movement_single_64354.mp3"
+    play sound clothQuiet
     "Time to get up, lonesome body."
-    play sound "sfx/zapsplat_foley_clothing_jacket_hi_vis_single_shake_003_111604.mp3"
+    play sound clothLoud
     show meyer default neu
     with fade
     """
@@ -105,18 +107,24 @@ label start:
 
     I like seeing people live brighter lives. It makes me happy too, just for a little bit.
     """
-    show cg calendar #action editor zoom
-    "Ah, that's right! I was going to visit my father today!"
+    camera:
+        subpixel True 
+        pos (0, 0) zoom 1.0 
+        ease 0.5 pos (-1764, -603) zoom 2.0 
+    "Ah, that's right! I was going to visit my dad today!"
     "I shouldn't just stand around, then. He'll scold me if I'm late to visit because I got stuck in my own head again..."
 
-    show bg bathroomCurtain
+    scene bg bathroomcurtain
+    camera:
+        pos (0, 0) zoom 1.0 
     with fade
 
     "... But there are nightmares everywhere."
     "Especially in that shaded, rusty mirror."
-    show bg bathroomCurtainOpen
+    show bg bathroomcurtain open
     show mina mirror shade
-    #sound effect, music 
+    with vpunch
+    play sound clothQuiet
     play music clownsMarch fadeout 1.0 fadein 1.0
     mi "It's been a while, Meyer."
     "One and the same."
@@ -152,11 +160,11 @@ label start:
         subpixel True 
         xpos 1.0 
         easein 0.30 xpos 1.03
-    my "... {w=1}I don't have time to think about that. Please, just show me my own appearance."
+    my "... {w=1}Just show me what I look like, {color=#b30045}'Mina.'"
     show mina up smug 
     mi "Fine... I guess you win."
 
-    scene bg bathroomCurtainOpen
+    scene bg bathroomcurtain open
     show meyer mirror neu
     with dissolve
     """
@@ -167,7 +175,6 @@ label start:
     Truthfully, I've always had eyebags. I was a high-achiever in school, so I spent a lot of nights studying until my dad yelled at me to go to sleep.\n{color=#7c7c7c}(It has persisted into my adulthood, so you see~.){/color}
     
     """
-    #sound effect
     "{w=1}Unfortunately, I don't have much in the way of makeup these days, so I opt to splash my face with cold water instead and hope it somehow clears up."
     "Still, my own face feels ugly to look at. I'd almost rather look at my actual Reflection."
 
@@ -187,14 +194,15 @@ label start:
     my "I'd rather you never come back, frankly."
     mi "Haha, then I wouldn't be doing my job!"
 
-    scene bg bathroomCurtainOpen
+    scene bg bathroomcurtain open
     show mina mirror tilt
+    with dissolve
     mi "... {w=1}Meyer, you'll have to forgive {s}yourself{/s} me one day, you know?"
     mi "Or one day, the pressure will get to you.\n{color=#7c7c7c}(Again.){/color}"
     my "..."
-    show bg bathroomCurtain
+    show bg bathroomcurtain
     hide mina
-    #sfx
+    play sound clothLoud
     stop music fadeout 1.0
     "A dismissal of myself. He is no longer welcome to speak."
     "But I know what he'd say to me:"
@@ -255,7 +263,7 @@ label day_1:
 
     """
 
-    Tyce isn't my biological dad, actually.
+    {color=#7c7c7c}Tyce{/color} isn't my biological dad, actually.
 
     He adopted me when I was twelve, a little after my first incident.
 
@@ -391,7 +399,7 @@ label day_1:
                 subpixel True
                 ypos 1.0
                 linear 0.36 ypos 1.03
-            "... I have a feeling he isn't talking about stars."
+            "... I get the feeling he isn't talking about stars."
 
     show tyce hand smile
     with None
@@ -414,17 +422,20 @@ label day_1:
     It's a big vague at this point, but I lived in a few different houses when I was in foster care. 
     """
     show meyer hand sad
-    "My last family before my incident was nice. They were happy to see me adopted."
+    "My last foster parents before my first incident were nice. They were happy to see me adopted."
     show meyer hand sad
     with pixellate
-    "My first adoptive 'family'... {nw=.3}"
+    "My first adoptive 'family'...\nA facility made for...{nw=.3}"
     show meyer hand sad
     with pixellate
-    "... No, nevermind. {w=1} I'm not wasting my breath with {color=#af0aa1}scum."
+    "{color=#af0aa1}..................."
 
     menu:
         "Look at the bookshelf nearby.":
-            show meyer default neu
+            show meyer default neu:
+                subpixel True 
+                xpos 0.5 
+                easein_bounce 0.30 xpos 0.55
             "I look around for anything to distract me before I start spiraling."
             $ endingGood += 5
 
@@ -448,7 +459,10 @@ label day_1:
             "I laugh as I sit back on the couch. I feel a little better now!"
 
         "Look at the framed pictures on the wall.":
-            show meyer default neu
+            show meyer default neu:
+                subpixel True 
+                xpos 0.5
+                easein_bounce 0.30 xpos 0.55
             "I look around for anything to distract me before I start spiraling."
 
             scene cg frames one
