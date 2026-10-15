@@ -11,11 +11,13 @@ define sp = Character("Spata", color = "#c54c30")
 define fu = Character("Fuca", color = "#fff") #this guy's back again? ah hell nah
                       
 image black = "#000"
-define  audio.clownsMarch = "audio/music/0277_道化のマーチ.mp3"
+define audio.clownsMarch = "audio/music/0277_道化のマーチ.mp3"
 define audio.clothLoud = "audio/sfx/zapsplat_foley_clothing_jacket_hi_vis_single_shake_003_111604.mp3"
 define audio.clothQuiet = "audio/sfx/zapsplat_household_bedsheet_movement_single_64354.mp3"
+#actually, these cloths are about the same volume. it's just different material.
 
 # shift + p = action editor
+# ALSO LIKE CHANGE YAMINI'S AND URMI'S COLORS WHEN YOU UPDATE THE UI THEY ARE NOT READABLE!!!!
 
 label start:
 
@@ -66,9 +68,9 @@ label start:
     show meyer default neu
     with fade
     """
-    I often have nightmares in my sleep. Definintely more than the average adult, but I'm sure I'm not the only one who suffers.
+    I often have nightmares in my sleep. Definitely more than the average adult, but I'm sure I'm not the only one who suffers.
     
-    We live in quite the tulmutuous world, after all! Violence is not a stranger in our lives, unfortunately for our young selves.
+    We live in quite the tumultuous world, after all! Violence is not a stranger in our lives, unfortunately for our young selves.
     """
     show meyer default neu:
         subpixel True 
@@ -95,7 +97,7 @@ label start:
     "Of course, I shouldn't be included in that gallantry."
     
     scene cg calendar
-    with fade
+    with dissolve
     """
     February 14th is my birthday, better known as Valentine's Day.
     
@@ -297,9 +299,7 @@ label day_1:
     show meyer hand sad 
     my """
     
-    There's no one to talk to in my house other than myself.
-    
-    It feels like I'm trapped inside my own bubble, I guess.
+    There's no one to talk to other than myself. It feels like I'm trapped inside my own bubble, I guess.
 
     Is that what living alone feels like? {w=1}\n... Maybe I should get a fishtank, just to fill the space a little.
     
@@ -321,7 +321,7 @@ label day_1:
     show meyer cheek happy
     my "Ah, but who cares about that? How's being an {i}almost-empty-nester?"
     show tyce default smile
-    ty "The greatest relief. These children have no regard for quiet nights; Always walking in and out like the world isn't supposed to asleep."
+    ty "The greatest relief. You children have no regard for quiet nights; Always walking in and out like the world isn't supposed to asleep."
     show meyer default neu
     show tyce default smile:
         subpixel True 
@@ -390,7 +390,7 @@ label day_1:
                 "No.":
                     $ endingBad += 5
                     my "Of course not. The sky in the city is no clearer than the suburbs."
-                    my "There's no time to stargaze now. I don't have the leisure time of a {color=#b30045}child{/color} anymore."
+                    my "There's no time to stargaze now. I can't pretend to be a {color=#b30045}child{/color} anymore."
                     ty "Is that so?"
                     show tyce default smile
                     ty "You still have plenty of time to find your way. Don't discount yourself just yet."
@@ -399,7 +399,7 @@ label day_1:
                 subpixel True
                 ypos 1.0
                 linear 0.36 ypos 1.03
-            "... I get the feeling he isn't talking about stars."
+            "... I get the strange feeling he isn't talking about stars."
 
     show tyce hand smile
     with None
@@ -450,7 +450,7 @@ label day_1:
             show photos two
             with dissolve
             "This one is of... {w=1} Eugh. It's some of my cringy outfits from high school."
-            "I wanted to be emo, but I didn't really want to commit to the colors -- or lack thereof --, so I just ended up as a dork.\n{color=#7c7c7c}(I'm glad I dress more like my dad now...)"
+            "I wanted to be emo, but I didn't really want to commit to the colors — or lack thereof —, so I just ended up as a dork.\n{color=#7c7c7c}(I'm glad I dress more like my dad now...)"
             "My close friend Urmi introduced me to a lot of niche rock bands, so I wanted to look the part."
             "... Though now that I think about it, she wasn't really commited to emo, either. Maybe we were all just posers~."
 
@@ -572,7 +572,7 @@ label day_2_start:
     show meyer phone neu
     with fade
     my "Hello?"
-    ya "We're going shopping. Get ready."
+    ya "Get out loser, we're going shopping!"
     show cg phone two #yamini annoy
     show meyer phone bother
     with vpunch
@@ -582,7 +582,7 @@ label day_2_start:
     my "And don't you have an important exam tomorrow, Yamini~? You should go study, my dear friend~."
     show cg phone three #yamini smug
     with dissolve
-    ya "Uh-huh. I'm already outside your apartment."
+    ya "Uh-huh. {w=1}{color=#5a23a2}I'm already outside your apartment."
     show meyer phone manic 
     my "... {w=1} I'm hanging up."
 
@@ -605,9 +605,9 @@ label day_2_start:
 
         We met in elementary school, before I was first adopted. 
 
-        Yamini, the narcissistic prodigy, and Urmi, the steadfast warrior. They were the "Genius Twins of the Master Parents" in our town, but they couldn't get along any worse!
+        {color=#5a23a2}Yamini,{/color} the narcissistic prodigy, and {color=#1e58c0}Urmi,{/color} the steadfast warrior. These {b}Genius Twins of the Master Parents{/b}, despite being inseparable, actually couldn't get along any worse!
 
-        But in the present day, valedictorian and salutatorian are going to the top college in the state to teach the next generation together. I really couldn't be happier for them.
+        But in the present day, {color=#5a23a2}valedictorian{/color} and {color=#1e58c0}salutatorian{/color} are going to the top college in the state to teach the next generation together. I really couldn't be happier for them.
 
         Still, there's still one thing I fail to understand about them. Maybe I'm simply too dumb for their level of intelligence, but...
 
@@ -618,6 +618,8 @@ label day_2_start:
     hide black
     with dissolve
 
+
+    #---------------------------------------- day 2 end -----------------------------------------------------
     
 label day_3_start:
 
@@ -628,6 +630,9 @@ label day_3_start:
         jump secret
     else:
         return
+
+
+    #---------------------------------------- day 3 end -----------------------------------------------------
 
 label secret:
     
@@ -650,7 +655,7 @@ label secret:
 
     show cg secret2
     with dissolve
-    ty "... What do you want, God of Biotic Beings?"
+    ty "... What do you want, {b}God of Biotic Beings?"
     fu "I don't mean to offend! Can't a 'person' visit their friends once in a while? I don't talk to you strictly for business, you know?"
     ty "I would not consider you a friend as much as an individual that has stuck around longer than others I have known."
     ty "And nonetheless, it is written on your face. You have dealings with {color=#7c7c7c}Death,{/color} not a former man named {color=#7c7c7c}Tyce{/color}."
@@ -680,6 +685,8 @@ label secret:
 
     scene black
     with fade 
+
+    "Secret End: The Horseman and Death's Children."
 
     return
     
